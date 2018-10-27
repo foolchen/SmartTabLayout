@@ -1,0 +1,10 @@
+<resources>
+  <string name="app_name">SmartTabLayout</string>
+
+  <string-array name="fragment_titles">
+    <item>首页</item>
+    <item>发现</item>
+    <item>关注</item>
+    <item>我</item>
+  </string-array>
+</resources>

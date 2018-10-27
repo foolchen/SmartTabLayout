@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="SmartTabLayout">
+    <attr format="dimension" name="stl_unselected_text_size"/>
+    <attr format="color" name="stl_unselected_text_color"/>
+    <attr format="dimension" name="stl_selected_text_size"/>
+    <attr format="color" name="stl_selected_text_color"/>
+    <attr format="dimension" name="stl_indicator_width"/>
+    <attr format="dimension" name="stl_indicator_height"/>
+    <attr format="color" name="stl_indicator_color"/>
+    <attr format="reference" name="stl_indicator_drawable"/>
+    <attr format="dimension" name="stl_padding_start"/>
+    <attr format="dimension" name="stl_padding_end"/>
+    <attr format="integer" name="stl_text_view_id"/>
+  </declare-styleable>
+</resources>

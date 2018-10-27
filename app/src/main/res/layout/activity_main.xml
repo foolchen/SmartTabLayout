@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+
+  <com.foolchen.lib.stl.SmartTabLayout
+      android:id="@+id/stl"
+      android:layout_width="match_parent"
+      android:layout_height="45dp"
+      android:background="@android:color/darker_gray"
+      android:paddingLeft="10dp"
+      android:paddingRight="10dp"
+      app:stl_indicator_color="@color/colorPrimaryDark"
+      app:stl_indicator_height="3dp"
+      app:stl_indicator_width="10dp"
+      app:stl_padding_end="10dp"
+      app:stl_padding_start="10dp"
+      app:stl_selected_text_color="@color/colorAccent"
+      app:stl_selected_text_size="20sp"
+      app:stl_unselected_text_color="@android:color/black"
+      app:stl_unselected_text_size="16sp"
+      />
+
+  <android.support.v4.view.ViewPager
+      android:id="@+id/vp"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/stl"
+      tools:background="@android:color/holo_blue_bright"
+      />
+
+</android.support.constraint.ConstraintLayout>

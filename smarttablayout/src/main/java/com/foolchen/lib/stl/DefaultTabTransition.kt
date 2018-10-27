@@ -1,6 +1,7 @@
 package com.foolchen.lib.stl
 
 import android.support.constraint.ConstraintLayout
+import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +18,30 @@ import android.widget.TextView
 class DefaultTabTransition(private val parent: SmartTabLayout) : ITabTransition {
 
   override fun process(percentage: Float, from: Int, to: Int) {
+    if (from == -1 || to == -1) return
+    Log.i("SmartTabLayout",
+        "from = $from , to = $to , percentage = $percentage ")
     if (from == to) {
       // 此时表明选中的tab未发生变化，仅需要重新确认各个child的参数即可
       onProcessFinished(from)
+    } else {
+      val deltaTextSize = parent.getSelectedTextSize() - parent.getUnSelectedTextSize()
+
+      val container = parent.getContainer()
+      val fromView = container.getChildAt(from)
+      val toView = container.getChildAt(to)
+
+      if (from < to) {
+        obtainTextView(fromView).setTextSize(TypedValue.COMPLEX_UNIT_PX,
+            parent.getSelectedTextSize() - deltaTextSize * percentage)
+        obtainTextView(toView).setTextSize(TypedValue.COMPLEX_UNIT_PX,
+            parent.getUnSelectedTextSize() + deltaTextSize * percentage)
+      } else {
+        obtainTextView(fromView).setTextSize(TypedValue.COMPLEX_UNIT_PX,
+            parent.getSelectedTextSize() - deltaTextSize * (1F - percentage))
+        obtainTextView(toView).setTextSize(TypedValue.COMPLEX_UNIT_PX,
+            parent.getUnSelectedTextSize() + deltaTextSize * (1F - percentage))
+      }
     }
   }
 

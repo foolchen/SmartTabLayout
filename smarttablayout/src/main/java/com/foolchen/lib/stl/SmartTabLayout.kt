@@ -59,7 +59,13 @@ class SmartTabLayout : HorizontalScrollView {
     object : ViewPager.SimpleOnPageChangeListener() {
       override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
         //mTabTransition.process(positionOffset, mCurrentPosition, position)
-
+        if (mCurrentPosition == position && positionOffset > 0F) {
+          // 此时为position -> position+1
+          mTabTransition.process(positionOffset, position, position + 1)
+        } else if (mCurrentPosition > position) {
+          // 此时为position -> position-1
+          mTabTransition.process(positionOffset, mCurrentPosition, position)
+        }
       }
 
       override fun onPageSelected(position: Int) {
